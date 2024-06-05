@@ -1,0 +1,62 @@
+/* Custom CSS for ngx-datatable */
+.material {
+  font-family: Arial, sans-serif;
+}
+
+/* Styling for Patient Table */
+.patient-table {
+  background-color: #f8f9fa; /* Light gray background */
+}
+
+/* Styling for Cases Table */
+.cases-table {
+  background-color: #e2f3f5; /* Light blue background */
+}
+
+/* Styling for Appointments Table */
+.appointments-table {
+  background-color: #ffe5d9; /* Light orange background */
+}
+
+/* Styling for table headers */
+datatable-header-cell,
+datatable-body-cell {
+  border: none !important;
+}
+
+/* Styling for odd rows */
+datatable-row-odd {
+  background-color: #f0f0f0; /* Lighter gray */
+}
+
+/* Styling for even rows */
+datatable-row-even {
+  background-color: #ffffff; /* White */
+}
+.patient-table .datatable-header,
+.patient-table .datatable-body {
+  background-color: #f8f9fa; /* Light gray background */
+}
+
+.patient-table .datatable-row-odd {
+  background-color: #ffffff; /* White */
+}
+
+.patient-table .datatable-row-even {
+  background-color: #f0f0f0; /* Lighter gray */
+}
+
+.patient-table .datatable-header-cell,
+.patient-table .datatable-body-cell {
+  border: 1px solid #dee2e6; /* Border color */
+  padding: 8px; /* Cell padding */
+}
+
+.patient-table .datatable-header,
+.patient-table .datatable-row {
+  min-height: 50px; /* Row height */
+}
+
+.patient-table .datatable-row:hover {
+  background-color: #e9ecef; /* Hover background color */
+}
