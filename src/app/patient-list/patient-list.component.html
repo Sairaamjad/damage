@@ -34,6 +34,21 @@
         {{ row.city }}
       </ng-template>
     </ngx-datatable-column>
+
+    <!-- Actions Column -->
+    <ngx-datatable-column name="Actions">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        <button mat-icon-button (click)="edit(row)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="delete(row)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-icon-button (click)="view(row)">
+          <mat-icon>visibility</mat-icon>
+        </button>
+      </ng-template>
+    </ngx-datatable-column>
   </ngx-datatable>
 
   <!-- Cases Table -->
@@ -56,38 +71,37 @@
     <ngx-datatable-column name="Firm ID" prop="firm_id"></ngx-datatable-column>
   </ngx-datatable>
 
- <!-- Appointments Table -->
-<!-- Appointments Table -->
-<!-- Appointments Table -->
-<h3>Appointments</h3>
-<ngx-datatable class="material appointments-table"
-  [rows]="cases"
-  [columnMode]="'force'"
-  [headerHeight]="50"
-  [footerHeight]="50"
-  [rowHeight]="'auto'">
-  
-  <ngx-datatable-column name="Case ID" prop="id"></ngx-datatable-column>
-  <ngx-datatable-column name="Appointment Date" prop="appointments[0].appointment_date">
-    <ng-template let-row="row" ngx-datatable-cell-template>
-      <div *ngIf="row.appointments && row.appointments.length > 0">
-        <ul>
-          <li *ngFor="let appointment of row.appointments">
-            <div>Date: {{ appointment.appointment_date }}</div>
-            <div>Time: {{ appointment.appointment_time }}</div>
-            <div>Type: {{ appointment.appointment_type }}</div>
-            <div>Priority: {{ appointment.apt_priority }}</div>
-            <div>Comments: {{ appointment.comments }}</div>
-            <div>Created At: {{ appointment.created_at }}</div>
-            <div>Doctor ID: {{ appointment.doctor_id }}</div>
-            <div>Duration: {{ appointment.duration }}</div>
-            <!-- Add more fields as needed -->
-          </li>
-        </ul>
-      </div>
-      <div *ngIf="!row.appointments || row.appointments.length === 0">
-        No appointments
-      </div>
-    </ng-template>
-  </ngx-datatable-column>
-</ngx-datatable>
+  <!-- Appointments Table -->
+  <h3>Appointments</h3>
+  <ngx-datatable class="material appointments-table"
+    [rows]="cases"
+    [columnMode]="'force'"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    [rowHeight]="'auto'">
+    
+    <ngx-datatable-column name="Case ID" prop="id"></ngx-datatable-column>
+    <ngx-datatable-column name="Appointment Date" prop="appointments[0].appointment_date">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        <div *ngIf="row.appointments && row.appointments.length > 0">
+          <ul>
+            <li *ngFor="let appointment of row.appointments">
+              <div>Date: {{ appointment.appointment_date }}</div>
+              <div>Time: {{ appointment.appointment_time }}</div>
+              <div>Type: {{ appointment.appointment_type }}</div>
+              <div>Priority: {{ appointment.apt_priority }}</div>
+              <div>Comments: {{ appointment.comments }}</div>
+              
+              <div>Doctor Name: {{ appointment.doctor.name }} | {{ appointment.doctor.specialty }}</div>
+
+              <div>Duration: {{ appointment.duration }}</div>
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="!row.appointments || row.appointments.length === 0">
+          No appointments
+        </div>
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+</div>
